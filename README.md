@@ -27,6 +27,23 @@ Or from the parent `taal` folder on port 8080: [http://localhost:8080/niet_ww_ca
 |------|---------|
 | `index.html`, `app.js`, `style.css` | App |
 | `*_words.js` | Word lists per category |
-| `speech.js` | Dutch pronunciation (browser TTS) |
+| `speech.js` | Pronunciation logic |
+| `audio/*.mp3` | Pre-recorded Dutch audio (garage **-ge** and politie **-tie** words) |
 
-Speech uses the browser’s Dutch voice (Web Speech API). Chrome and Safari work best.
+## Pronunciation
+
+Some words (e.g. **bagage**, **gage**, **politie**) are hard for browser text-to-speech. For those, the app plays **MP3 files** from the `audio/` folder (clear Dutch, sounds like *bagazje*).
+
+Other words use the browser’s Dutch voice (Web Speech API). Chrome and Safari work best.
+
+### Regenerate audio (optional)
+
+```bash
+cd niet_ww_category
+pip install edge-tts
+python3 scripts/generate_audio.py
+```
+
+## GitHub
+
+Upload this whole folder (including `audio/`). GitHub Pages will serve the MP3 files so pronunciation works online.
