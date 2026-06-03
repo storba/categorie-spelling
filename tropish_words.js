@@ -1,0 +1,47 @@
+/**
+ * Tropische woorden uit tropish_words.pdf
+ * Regel: je hoort /ies/, maar je schrijft -isch
+ */
+const TROPISH_WORDS = [
+  // pagina 1
+  "tropisch",
+  "praktisch",
+  "technisch",
+  "fantastisch",
+  "historisch",
+  "toeristisch",
+  "automatisch",
+  "magnetisch",
+  "ritmisch",
+  "Belgisch",
+  "alfabetisch",
+  "dyslectisch",
+  "optimistisch",
+  "vulkanisch",
+  "magisch",
+  "statisch",
+  "komisch",
+  "tragisch",
+  "dramatisch",
+  "chemisch",
+  "chaotisch",
+  "elektrisch",
+  // pagina 2
+  "telefonisch",
+  "romantisch",
+  "kritisch",
+  "gigantisch",
+  "biologisch",
+  "typisch",
+  "psychisch",
+  "democratisch",
+  "realistisch",
+  "technologisch",
+  "allergisch",
+  "pessimistisch",
+  "theoretisch",
+  "therapeutisch",
+  "vegetarisch",
+  "economisch",
+  "Atlantische Oceaan",
+];

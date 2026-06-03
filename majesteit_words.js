@@ -1,0 +1,45 @@
+/**
+ * Majesteit-woorden uit majesteit_words.pdf
+ * Net als majesteit: woorden op -teit
+ */
+const MAJESTEIT_WORDS = [
+  // pagina 1
+  "majesteit",
+  "kwaliteit",
+  "puberteit",
+  "rariteit",
+  "hilariteit",
+  "identiteit",
+  "rivaliteit",
+  "brutaliteit",
+  "diversiteit",
+  "publiciteit",
+  "mobiliteit",
+  "stabiliteit",
+  "autoriteit",
+  "prioriteit",
+  "capaciteit",
+  "totaliteit",
+  "realiteit",
+  "calamiteit",
+  "nervositeit",
+  // pagina 2
+  "sportiviteit",
+  "festiviteit",
+  "mentaliteit",
+  "actualiteit",
+  "elektriciteit",
+  "elasticiteit",
+  "specialiteit",
+  "muzikaliteit",
+  "creativiteit",
+  "positiviteit",
+  "negativiteit",
+  "originaliteit",
+  "criminaliteit",
+  "populariteit",
+  "universiteit",
+  "nationaliteit",
+  "effectiviteit",
+  "passiviteit",
+];

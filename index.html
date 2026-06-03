@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Taal — Categorie spelling</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header>
+      <h1>Categorie spelling</h1>
+      <p class="subtitle">Kies hoeveel woorden je per categorie wilt oefenen. Fout op de eerste poging? Dan komt het woord de volgende keer terug.</p>
+      <p class="review-info hidden" id="reviewInfo"></p>
+    </header>
+
+    <section class="setup card" id="setup">
+      <div class="setup-user">
+        <label class="setup-user-label" for="userNameInput">Jouw naam</label>
+        <input
+          type="text"
+          id="userNameInput"
+          class="setup-user-input"
+          maxlength="40"
+          autocomplete="name"
+          placeholder="Typ je naam…"
+        />
+      </div>
+      <h2 class="setup-heading">Woorden per categorie</h2>
+      <div class="setup-quick">
+        <label class="setup-quick-label" for="setupAll">Alle categorieën</label>
+        <input type="number" id="setupAll" class="setup-count-input setup-all-input" min="0" value="4" />
+        <button type="button" class="btn btn-secondary btn-sm" id="applyAllBtn">Toepassen</button>
+      </div>
+      <ul class="setup-categories" id="setupCategories" aria-label="Woorden per categorie"></ul>
+      <p class="setup-total" id="setupTotal" aria-live="polite"></p>
+      <button type="button" class="btn btn-primary setup-start" id="startBtn">Start ronde</button>
+    </section>
+
+    <section class="progress hidden" aria-live="polite" id="progressSection">
+      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-text" id="progressText">Woord 1 van 40</p>
+    </section>
+
+    <section class="card hidden" id="card">
+      <p class="category-badge" id="categoryBadge"></p>
+      <p class="prompt">Typ het woord dat je hoort:</p>
+      <div class="listen-row">
+        <button type="button" class="btn btn-secondary" id="listenBtn" aria-label="Woord opnieuw uitspreken">
+          🔊 Luister opnieuw
+        </button>
+        <label class="speed-control" for="speechRate">
+          <span class="speed-label">Snelheid</span>
+          <select id="speechRate" aria-describedby="speedHint">
+            <option value="0.4">Zeer langzaam</option>
+            <option value="0.55" selected>Langzaam</option>
+            <option value="0.75">Normaal</option>
+            <option value="1">Snel</option>
+          </select>
+        </label>
+        <p class="speed-hint" id="speedHint">Langzamer = makkelijker om elk woord te horen.</p>
+      </div>
+
+      <form id="answerForm" autocomplete="off">
+        <label class="visually-hidden" for="answerInput">Antwoord</label>
+        <input
+          type="text"
+          id="answerInput"
+          class="answer-input"
+          spellcheck="false"
+          autocapitalize="off"
+          autocomplete="off"
+          placeholder="Typ hier…"
+          autofocus
+        />
+        <div class="actions">
+          <button type="submit" class="btn btn-primary" id="checkBtn">Controleer</button>
+          <button type="button" class="btn btn-ghost" id="skipBtn">Overslaan</button>
+        </div>
+      </form>
+
+      <div class="feedback hidden" id="feedback" role="status"></div>
+    </section>
+
+    <section class="results hidden" id="results">
+      <h2>Klaar!</h2>
+      <p class="score" id="scoreText"></p>
+      <p class="review-summary hidden" id="reviewSummary"></p>
+
+      <h3 class="results-heading">Deze ronde</h3>
+      <div class="results-table-wrap">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>Categorie</th>
+              <th>Woord</th>
+              <th>Pogingen</th>
+              <th>1e poging</th>
+              <th>Resultaat</th>
+            </tr>
+          </thead>
+          <tbody id="resultsTableBody"></tbody>
+        </table>
+      </div>
+
+      <h3 class="results-heading">Woorden met fout op eerste poging</h3>
+      <ul class="mistakes-list" id="mistakesList"></ul>
+
+      <h3 class="results-heading no-print">Alle eerder gevraagde woorden</h3>
+      <div class="results-table-wrap no-print asked-log-wrap">
+        <table class="results-table asked-log-table">
+          <thead>
+            <tr>
+              <th>Datum</th>
+              <th>Naam</th>
+              <th>Categorie</th>
+              <th>Woord</th>
+              <th>1e poging</th>
+              <th>Uitkomst</th>
+            </tr>
+          </thead>
+          <tbody id="askedLogBody"></tbody>
+        </table>
+      </div>
+
+      <div class="results-actions no-print">
+        <button type="button" class="btn btn-primary" id="printBtn">Resultaten printen</button>
+        <button type="button" class="btn btn-ghost" id="restartBtn">Nieuwe ronde</button>
+      </div>
+
+      <h3 class="results-heading no-print">Eerdere rondes</h3>
+      <ul class="history-list no-print" id="historyList"></ul>
+    </section>
+  </main>
+
+  <div id="printableResults" class="print-only" aria-hidden="true"></div>
+
+  <script src="cent_words.js"></script>
+  <script src="cactus_words.js"></script>
+  <script src="chef_words.js"></script>
+  <script src="garage_words.js"></script>
+  <script src="griekse_y_words.js"></script>
+  <script src="tropish_words.js"></script>
+  <script src="dirigent_words.js"></script>
+  <script src="politie_words.js"></script>
+  <script src="majesteit_words.js"></script>
+  <script src="taxi_words.js"></script>
+  <script src="speech.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
